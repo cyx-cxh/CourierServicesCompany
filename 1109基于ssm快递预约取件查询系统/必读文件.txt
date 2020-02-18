@@ -1,0 +1,9 @@
+前台访问：http://localhost:8080/bm/web/index.do
+后台访问：http://localhost:8080/bm/loginOut 
+
+视频下载地址：
+链接：https://pan.baidu.com/s/1H_-RvK6gKBWZNMcxemeRPw 
+提取码：h7dl 
+
+
+

@@ -1,0 +1,61 @@
+body{
+	background-color:#f9f9f9;
+	margin:0px;
+	padding:0px;
+	}
+.if_msg{
+	height: auto;
+	width: auto;
+	padding-left:10px;
+	}	
+.if_msg_nav{
+	height: 35px;
+	width: 99%;
+	border-bottom:1px solid #CCC;
+	text-indent:30px;
+	font-size:16px;
+	font-family:"微软雅黑";
+	color:#015089;
+	line-height:35px;
+	letter-spacing:3px;
+	background:url(img/icon_msg0.png) no-repeat left center;
+	}	
+.if_msg_icon1{
+	width:26%;
+	height:128px;
+	background-color:#f6f6f6;
+	border:1px solid #e1e1e1;
+	margin-top:10px;
+	float:left;
+	margin-right:3%;
+	}
+.if_msg_back1{background-image:url(img/icon_msg1.png);background-repeat:no-repeat;background-position:left;}
+.if_msg_back2{background-image:url(img/icon_msg2.png);background-repeat:no-repeat;background-position:left;}
+.if_msg_back3{background-image:url(img/icon_msg3.png);background-repeat:no-repeat;background-position:left;}
+.if_msg_textright{
+	height:90px;
+	float:left;
+	margin-top:30px;
+	margin-left:200px;
+	}	
+.if_msg_textright a{
+	font-size:46px;
+	text-decoration:none;
+	font-weight:bold;
+	}		
+.if_msg_textright span{
+	font-size:12px;
+	margin-left:2px;
+	}	
+.if_msg_textright div{
+	font-size:18px;
+	font-weight:bold;
+	margin-top:5px;
+	}	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,89 @@
+@charset "utf-8";
+html {
+	scrollbar-face-color: #DDEEFF; /*主色调*/
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #689ee4; /*描边颜色*/
+	scrollbar-3dlight-color: #689ee4; /*左侧边高光颜色*/
+	scrollbar-arrow-color: #6688AA; /*小三角颜色*/
+	scrollbar-darkshadow-color: #DDEEFF;
+}
+
+body {
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #0160a4;
+}
+
+div {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.ifboxmenu {
+
+	margin: 0px;
+	padding: 0px;
+}
+
+.menupanel {
+	background-color: #015089;
+	background-image: url(img/menupanelbg.png);
+	background-repeat: no-repeat;
+	height: 34px;
+	width: auto;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFF;
+	line-height: 24px;
+	padding-left: 40px;
+	padding-top: 9px;
+	background-position: 6px 9px;
+}
+
+.ifboxmenu ul li {
+	height: 30px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #0273c5;
+	border-bottom-color: #03487a;
+	line-height: 30px;
+}
+
+.ifboxmenu li a {
+	outline: none;
+	hide-focus: expression(this.hideFocus=true);
+	display: block;
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	color: #efefef;
+	text-decoration: none;
+	text-indent: 30px;
+}
+
+.ifboxmenu li a:hover {
+	font-size: 12px;
+	line-height: 30px;
+	color: #efefef;
+	text-decoration: none;
+	background-color: #0272c3;
+}
+
+.ifboxmenu li .current {
+	text-decoration: none;
+	color: #FFFFFF; /*文字颜色*/
+	background-color: #0272c3;
+}

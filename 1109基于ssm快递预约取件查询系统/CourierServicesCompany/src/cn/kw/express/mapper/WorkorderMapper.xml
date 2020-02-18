@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+    <!DOCTYPE mapper   
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 不使用namespace的话sql搜索定位会比较方便-->
+<mapper namespace="cn.kw.express.mapper.WorkorderMapper">
+
+     <!-- 实体类与数据库映射字段部分  start -->
+	<resultMap id="ResultMapWorkorder" type="cn.kw.express.pojo.Workorder">
+		<result property="id" column="id"  jdbcType="INTEGER"/>
+		<result property="code" column="code"  jdbcType="VARCHAR"/>
+		<result property="state" column="state"  jdbcType="INTEGER"/>
+		<result property="weight" column="weight"  jdbcType="DOUBLE"/>
+		<result property="jg" column="jg"  jdbcType="DOUBLE"/>
+		<result property="isQj" column="isQj"  jdbcType="INTEGER"/>
+		<result property="isPj" column="isPj"  jdbcType="INTEGER"/>
+		<result property="expressPersonId" column="expressPersonId"  jdbcType="INTEGER"/>
+		<result property="channelId" column="channelId"  jdbcType="INTEGER"/>
+		<result property="companyId" column="companyId"  jdbcType="INTEGER"/>
+		<result property="networkId" column="networkId"  jdbcType="INTEGER"/>
+		<result property="addtime" column="addtime"  jdbcType="DATE"/>
+		<result property="usersId" column="usersId"  jdbcType="INTEGER"/>
+		<result property="sjr" column="sjr"  jdbcType="INTEGER"/>
+		<result property="sjrName" column="sjrName"  jdbcType="VARCHAR"/>
+		<result property="sjrAddress" column="sjrAddress"  jdbcType="VARCHAR"/>
+		<result property="sjrPhone" column="sjrPhone"  jdbcType="VARCHAR"/>
+	</resultMap>
+	 <!-- 实体类与数据库映射字段部分  end -->
+	 
+	 <!-- 声明数据库字段 -->
+	<sql id="Workorder_field">
+           id,
+           code,
+           state,
+           weight,
+           jg,
+           isQj,
+           isPj,
+           expressPersonId,
+           channelId,
+           companyId,
+           networkId,
+           addtime,
+           usersId,
+           sjr,
+           sjrName,
+           sjrAddress,
+           sjrPhone
+	</sql>
+	<sql id="Workorder_inserts">
+		code,
+           state,
+           weight,
+           jg,
+           isQj,
+           isPj,
+           expressPersonId,
+           channelId,
+           companyId,
+           networkId,
+           addtime,
+           usersId,
+           sjr,
+           sjrName,
+           sjrAddress,
+           sjrPhone
+	</sql>
+	<!-- 实体类属性  -->
+	<sql id="Workorder_insert">
+        	#{code} ,
+        	#{state} ,
+        	#{weight} ,
+        	#{jg} ,
+        	#{isQj} ,
+        	#{isPj} ,
+        	#{expressPersonId} ,
+        	#{channelId} ,
+        	#{companyId} ,
+        	#{networkId} ,
+        	#{addtime} ,
+        	#{usersId} ,
+        	#{sjr} ,
+        	#{sjrName} ,
+        	#{sjrAddress},
+        	#{sjrPhone}
+	</sql>
+	
+	<!-- 执行修改时 数据库字段和表字段比较 -->
+	<sql id="Workorder_update">
+		<if test="code != null and code != ''" >
+			code = #{code} ,
+		</if>
+		<if test="state != null" >
+			state = #{state} ,
+		</if>
+		<if test="weight != null" >
+			weight = #{weight} ,
+		</if>
+		<if test="jg != null" >
+			jg = #{jg} ,
+		</if>
+		<if test="isQj != null" >
+			isQj = #{isQj} ,
+		</if>
+		<if test="isPj != null" >
+			isPj = #{isPj} ,
+		</if>
+		<if test="expressPersonId != null" >
+			expressPersonId = #{expressPersonId} ,
+		</if>
+		<if test="channelId != null" >
+			channelId = #{channelId} ,
+		</if>
+		<if test="companyId != null" >
+			companyId = #{companyId} ,
+		</if>
+		<if test="networkId != null" >
+			networkId = #{networkId} ,
+		</if>
+		<if test="addtime != null" >
+			addtime = #{addtime} ,
+		</if>
+		<if test="usersId != null" >
+			usersId = #{usersId} ,
+		</if>
+		<if test="sjr != null" >
+			sjr = #{sjr} ,
+		</if>
+		<if test="sjrName != null" >
+			sjrName = #{sjrName} ,
+		</if>
+		<if test="sjrAddress != null" >
+			sjrAddress = #{sjrAddress}
+		</if>
+		<if test="sjrPhone != null" >
+			sjrPhone = #{sjrPhone}
+		</if>
+	</sql>
+	
+	<!-- 查询时条件 -->
+	<sql id="Workorder_where">
+		<if test="id != null " >
+			and id =#{id}
+		</if>
+		<if test="code != null and code != ''" >
+			and code =#{code}
+		</if>
+		<if test="state != null " >
+			and state =#{state}
+		</if>
+		<if test="weight != null " >
+			and weight =#{weight}
+		</if>
+		<if test="jg != null " >
+			and jg =#{jg}
+		</if>
+		<if test="isQj != null " >
+			and isQj =#{isQj}
+		</if>
+		<if test="isPj != null " >
+			and isPj =#{isPj}
+		</if>
+		<if test="expressPersonId != null " >
+			and expressPersonId =#{expressPersonId}
+		</if>
+		<if test="channelId != null " >
+			and channelId =#{channelId}
+		</if>
+		<if test="companyId != null " >
+			and companyId =#{companyId}
+		</if>
+		<if test="networkId != null " >
+			and networkId =#{networkId}
+		</if>
+		<if test="addtime != null " >
+			and addtime =#{addtime}
+		</if>
+		<if test="usersId != null " >
+			and usersId =#{usersId}
+		</if>
+		<if test="sjr != null and sjr != ''" >
+			and sjr =#{sjr}
+		</if>
+		<if test="sjrName != null  and sjrName != ''" >
+			and sjrName =#{sjrName}
+		</if>
+		<if test="sjrAddress != null  and sjrAddress != ''" >
+			and sjrAddress =#{sjrAddress}
+		</if>
+		<if test="sjrPhone != null and sjrPhone != ''" >
+			andsjrPhone = #{sjrPhone}
+		</if>
+	</sql>
+	
+   <!-- **************************************分割线************************************************************ -->	
+	
+	<!-- 以下是sql执行语句 
+	     注意：1)需要传参数的请注意你使用的方法是 xxByMap还是ByEntuty 存放的参数类型不一致。
+	      2)非自定义的方法已经是basedao注明的。方法名一定要和id相同
+	      3)自定义类的方法注意是否和共有方法重名id
+	      4)执行sql出现顺序和baseDao方法一致，便于查询请勿随意添加，自定义的sql一律放在自定义sql区域
+	 -->
+	
+	
+   <!-- ========================================新增==================================================================== -->
+	<!-- 
+	 【注意添加序列】
+	 1.方法描述：新增数据
+	 2.参数：实体类
+	 3.返回：主键
+	-->
+	<insert id="insert" parameterType="cn.kw.express.pojo.Workorder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO workorder (
+        <include refid="Workorder_inserts" />
+        ) VALUES (
+        <include refid="Workorder_insert" />       
+        )
+	</insert>
+	
+	
+	 <!-- ========================================删除==================================================================== -->
+	<!-- 
+	 1.方法描述：根据主键id删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteById" parameterType="java.lang.Integer">
+	 delete from workorder where id=#{id}
+	</delete>
+	
+	
+	<!-- 
+	 1.方法描述：根据实体类删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteByEntity" parameterType="cn.kw.express.pojo.Workorder">
+	 delete from workorder
+	  WHERE 1=1
+      <include refid="Workorder_where" />   
+	</delete>
+	
+	
+	<!-- 
+	 1.方法描述：根据map删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteByMap" parameterType="java.util.HashMap">
+	 delete from workorder
+	  WHERE 1=1
+      <include refid="Workorder_where" />   
+	</delete>
+	
+	
+	 <!-- ========================================修改==================================================================== -->
+	<!-- 
+	 1.方法描述：修改数据
+	 2.参数：实体类
+	-->
+	<update id="update" parameterType="cn.kw.express.pojo.Workorder">
+        UPDATE workorder
+        <set>
+	        <include refid="Workorder_update" />
+	    </set>
+        WHERE 1=1
+        	<include refid="Workorder_where" />        
+	</update>
+	
+	<!-- 
+	 1.方法描述：修改数据通过id
+	 2.参数：实体类
+	 -->
+	<update id="updateById" parameterType="cn.kw.express.pojo.Workorder">
+        UPDATE workorder
+        <set>
+	        <include refid="Workorder_update" />
+	    </set>
+        WHERE 1=1
+        	and id=#{id}      
+	</update>
+	
+	
+	
+	 <!-- ========================================查询列表【不分页】==================================================================== -->
+	
+	<!-- 
+	 1.方法描述：用于listByMap根据map查询
+	 2.参数：map
+	-->
+	<select id="listByMap" resultMap="ResultMapWorkorder" parameterType="map">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于select查询所有
+	 2.参数：无参数
+	-->
+	<select id="listAll" resultMap="ResultMapWorkorder">
+		select <include refid="Workorder_field" />
+ 		from workorder 
+	</select>
+	
+	
+	<!-- 
+	 1.方法描述：查询所有实体,根据实体属性值为判断条件查询所有实体，
+	 2.参数：Entity
+	-->
+	<select id="listAllByEntity" resultMap="ResultMapWorkorder" parameterType="cn.kw.express.pojo.Workorder">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+	
+	
+	 <!-- ========================================查询单个对象==================================================================== -->
+	<!-- 
+	 1.方法描述：select查询单个
+	 2.参数：id
+	-->
+	<select id="load" resultMap="ResultMapWorkorder" parameterType="java.lang.Integer">
+		select 	<include refid="Workorder_field" />
+ 		from workorder 
+ 		where id=#{id}
+	</select>
+	
+	
+	
+	<!-- 
+	 1.方法描述：select查询单个
+	 2.参数：id
+	-->
+	<select id="getById" resultMap="ResultMapWorkorder" parameterType="java.lang.Integer">
+		select 	<include refid="Workorder_field" />
+ 		from workorder 
+ 		where id=#{id}
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于getByMap根据map查询
+	 2.参数：map
+	-->
+	<select id="getByMap" resultMap="ResultMapWorkorder" parameterType="map">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于Entity根据Entity查询
+	 2.参数：Entity
+	 -->
+	<select id="getByEntity" resultMap="ResultMapWorkorder" parameterType="cn.kw.express.pojo.Workorder">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+	
+	 <!-- ========================================查询列表【分页】==================================================================== -->
+     <!-- 
+	 1.方法描述：分页
+	 2.参数：map
+	 -->
+	<select id="findByMap" resultMap="ResultMapWorkorder" parameterType="map">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+     <!-- 
+	 1.方法描述：分页
+	 2.参数：Entity
+	 -->
+	<select id="findByEntity" resultMap="ResultMapWorkorder" parameterType="cn.kw.express.pojo.Workorder">
+		select <include refid="Workorder_field" />
+ 		from workorder where 1=1
+ 		<include refid="Workorder_where" /> 
+	</select>
+	
+	
+	 <!-- ========================================批量新增修改==================================================================== -->
+	<!-- 
+	 1.方法描述：批量插入
+	 2.参数：集合/数组
+	-->
+	<insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO workorder (
+        <include refid="Workorder_field" />
+        ) VALUES 
+        <foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			
+	            #{item.code} ,
+	            #{item.state} ,
+	            #{item.weight} ,
+	            #{item.jg} ,
+	            #{item.isQj} ,
+	            #{item.isPj} ,
+	            #{item.expressPersonId} ,
+	            #{item.channelId} ,
+	            #{item.companyId} ,
+	            #{item.networkId} ,
+	            #{item.addtime} 
+			
+			)
+		</foreach>       
+        
+	</insert>
+    
+    <!-- 
+	 1.方法描述：批量修改
+	 2.参数：集合/数组
+	-->
+	<update id="updateBatch" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"
+			separator=";">
+        UPDATE 
+        workorder 
+        <set>
+		    <if test="item.code != null" >
+	        code = #{item.code},
+	        </if>
+		    <if test="item.state != null" >
+	        state = #{item.state},
+	        </if>
+		    <if test="item.weight != null" >
+	        weight = #{item.weight},
+	        </if>
+		    <if test="item.jg != null" >
+	        jg = #{item.jg},
+	        </if>
+		    <if test="item.isQj != null" >
+	        isQj = #{item.isQj},
+	        </if>
+		    <if test="item.isPj != null" >
+	        isPj = #{item.isPj},
+	        </if>
+		    <if test="item.expressPersonId != null" >
+	        expressPersonId = #{item.expressPersonId},
+	        </if>
+		    <if test="item.channelId != null" >
+	        channelId = #{item.channelId},
+	        </if>
+		    <if test="item.companyId != null" >
+	        companyId = #{item.companyId},
+	        </if>
+		    <if test="item.networkId != null" >
+	        networkId = #{item.networkId},
+	        </if>
+		    <if test="item.addtime != null" >
+	        addtime = #{item.addtime}
+	        </if>
+	    </set>
+        WHERE 
+        	1=1 
+        </foreach>    
+	</update>
+
+   <!-- ******************************自定义 sql************************************************************** -->
+   
+   <!-- 
+           通过sql查询单个对象 返回对象
+    -->
+   <select id="getBySqlReturnEntity" resultMap="ResultMapWorkorder">
+		${sql}
+   </select>
+   
+    <!-- 
+           通过sql查询单个对象 返回map
+    -->
+   <select id="getBySqlReturnMap" resultType="map">
+		${sql}
+   </select>
+   
+   <!-- 
+           通过sql查询集合 返回对象
+    -->
+   <select id="listBySqReturnEntity" resultMap="ResultMapWorkorder">
+		${sql}
+   </select>
+   
+    <!-- 
+           通过sql查询查询集合 返回map
+    -->
+   <select id="listBySqReturnMap" resultType="map">
+		${sql}
+   </select>
+   
+   <!-- 
+           通过sql查询分页集合 返回对象
+    -->
+   <select id="findBySqlRerturnEntity" resultMap="ResultMapWorkorder">
+		${sql}
+   </select>
+   
+   <!-- 通过sql修改 -->
+   <update id="updateBysql">
+       ${sql}  
+   </update>
+   
+   <delete id="deleteBySql">
+	${sql}  
+	</delete>
+	
+</mapper>
+

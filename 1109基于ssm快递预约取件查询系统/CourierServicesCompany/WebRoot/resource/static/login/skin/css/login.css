@@ -1,0 +1,237 @@
+@charset "utf-8";
+body {
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../images/login_t_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-color: #0587F5;
+}
+input{outline: none;}
+.clearb {
+    clear: both
+}
+
+.fixed {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 347px;
+    z-index: 9999;
+    background-image: url(../images/login_b_bg.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+}
+
+.login_main {
+    height: 197px;
+    width: 544px;
+    margin-top: 95px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login_top_nei {
+    height: 45px;
+    width: auto;
+}
+
+.menubox {
+    height: 45px;
+    width: 146px;
+}
+
+.main_menu {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.main_menu li {
+    float: left;
+    cursor: pointer;
+    width: 73px;
+    text-align: center;
+    line-height: 40px;
+    height: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../images/tab_out.png);
+    background-repeat: repeat-x;
+    background-position: 0px 39px;
+}
+
+.main_menu li.hover {
+    color: #FF6;
+    background-image: url(../images/tab_on.png);
+    background-repeat: repeat-x;
+    background-position: 0px 39px;
+}
+
+.login_dln {
+    height: 100px;
+    width: 544px;
+    margin-top: 14px;
+}
+
+.login_dln span {
+    display: none;
+}
+
+.login_dln .block {
+    display: block;
+}
+
+.login_left {
+    float: left;
+    height: 100px;
+    width: 426px;
+}
+
+.login_h {
+    height: 99px;
+    width: 99px;
+
+}
+
+.login_right {
+    height: 99px;
+    width: 99px;
+    float: left;
+    margin-left: 18px;
+}
+
+.login_inp_c {
+    float: left;
+    height: 46px;
+    width: 426px;
+}
+.login_c_backone{
+    background-image: url(../images/username_input_l.png);
+}
+.login_c_backtwo{
+    background-image: url(../images/userpass_input.png);
+}
+.login_d_backone{
+    background-image: url(../images/username_input.png);
+}
+.login_d_backtwo{
+    background-image: url(../images/zuoxi_input.png);
+}
+.login_inp_d {
+    float: left;
+    height: 46px;
+    width: 207px;
+}
+
+.input_username {
+    float: right;
+    height: 38px;
+    width: 155px;
+    border: none;
+    margin: 4px;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 38px;
+    color: #333;
+    background: none;
+}
+
+.input_useragent {
+    float: right;
+    height: 38px;
+    width: 155px;
+    border: none;
+    margin: 4px;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 38px;
+    color: #333;
+    background: none;
+}
+
+.input_username1 {
+    float: right;
+    height: 38px;
+    width: 375px;
+    border: none;
+    margin: 4px;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 38px;
+    color: #333;
+    background: none;
+}
+
+.input_pass {
+    float: right;
+    height: 38px;
+    width: 375px;
+    border: none;
+    margin: 4px;
+    padding: 0px;
+    background-position: -4px -4px;
+    font-size: 14px;
+    line-height: 38px;
+    color: #333;
+    background: none;
+}
+
+.login_bt {
+    background-image: url(../images/submit.png);
+    height: 91px;
+    width: 91px;
+    background-repeat: no-repeat;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    background-position: -4px -4px;
+    margin: 4px;
+}
+
+.login_btw {
+    background-image: url(../images/submit.png);
+    height: 99px;
+    width: 99px;
+    background-repeat: no-repeat;
+
+}
+
+.margin_top_7 {
+    margin-top: 7px;
+}
+
+.margin_left_12 {
+    margin-left: 12px;
+}
+
+.cuowu {
+    font-size: 12px;
+    line-height: 24px;
+    color: #F90;
+    height: 24px;
+    width: auto;
+    margin-top: 10px;
+    clear: none;
+}
+
+.login_banquan {
+    height: 30px;
+    width: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+    color: #FFF;
+}

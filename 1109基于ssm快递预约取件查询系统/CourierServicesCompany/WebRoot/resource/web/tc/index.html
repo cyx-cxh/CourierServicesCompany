@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery模态窗口登陆效果</title>
+
+<link rel="stylesheet" type="text/css" media="all" href="style.css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="w">
+	<div id="content">
+		<h1>Welcome to the Site!</h1>
+		<p>Just click the login link below to expand the modal window. This is only a demo so the input form will not load anything, but it is easy to connect into a backend system.</p>
+		<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Modal Login</a></center>
+	</div>
+</div>
+
+<div id="loginmodal" style="display:none;">
+	<h1>User Login</h1>
+	<form id="loginform" name="loginform" method="post" action="index.html">
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="username" class="txtfield" tabindex="1" />
+	
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password" class="txtfield" tabindex="2" />
+	
+		<div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+	</form>
+</div>
+ 
+
+<script type="text/javascript">
+$(function(){
+
+	$('#loginform').submit(function(e){
+		return false;
+	});
+	
+	//弹出层调用语句
+	$('#modaltrigger').leanModal({
+		top:110,
+		overlay:0.45,
+		closeButton:".hidemodal"
+	});
+	
+});
+</script>
+
+</body>
+</html>

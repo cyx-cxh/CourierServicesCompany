@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+    <!DOCTYPE mapper   
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 不使用namespace的话sql搜索定位会比较方便-->
+<mapper namespace="cn.kw.express.mapper.ExpresspersonMapper">
+
+     <!-- 实体类与数据库映射字段部分  start -->
+	<resultMap id="ResultMapExpressperson" type="cn.kw.express.pojo.Expressperson">
+		<result property="id" column="id"  jdbcType="INTEGER"/>
+		<result property="name" column="name"  jdbcType="VARCHAR"/>
+		<result property="phone" column="phone"  jdbcType="VARCHAR"/>
+		<result property="sex" column="sex"  jdbcType="INTEGER"/>
+		<result property="networkId" column="networkId"  jdbcType="INTEGER"/>
+		<result property="companyId" column="companyId"  jdbcType="INTEGER"/>
+		<result property="realName" column="realName"  jdbcType="VARCHAR"/>
+		<result property="pw" column="pw"  jdbcType="VARCHAR"/>
+	</resultMap>
+	 <!-- 实体类与数据库映射字段部分  end -->
+	 
+	 <!-- 声明数据库字段 -->
+	<sql id="Expressperson_field">
+           id,
+           name,
+           phone,
+           sex,
+           networkId,
+           companyId,
+           realName,
+           pw
+	</sql>
+	<sql id="Expressperson_inserts">
+		name,
+		phone,
+		sex,
+		networkId,
+		companyId,
+           realName,
+           pw
+	</sql>
+	<!-- 实体类属性  -->
+	<sql id="Expressperson_insert">
+        	#{name} ,
+        	#{phone} ,
+        	#{sex} ,
+        	#{networkId} ,
+        	#{companyId} ,
+        	#{realName} ,
+        	#{pw}
+	</sql>
+	
+	<!-- 执行修改时 数据库字段和表字段比较 -->
+	<sql id="Expressperson_update">
+		    <if test="name != null and name != ''" >
+	            name = #{name} ,
+	        </if>
+		    <if test="phone != null and phone != ''" >
+	            phone = #{phone} ,
+	        </if>
+		<if test="realName != null and realName != ''" >
+			realName = #{realName} ,
+		</if>
+		<if test="pw != null and pw != ''" >
+			pw = #{pw} ,
+		</if>
+		    <if test="sex != null" >
+	            sex = #{sex} ,
+	        </if>
+		    <if test="networkId != null" >
+	            networkId = #{networkId} ,
+	        </if>
+		    <if test="companyId != null" >
+	            companyId = #{companyId} 
+	        </if>
+	</sql>
+	
+	<!-- 查询时条件 -->
+	<sql id="Expressperson_where">
+	        <if test="id != null " >
+	            and id =#{id}
+	        </if>
+	        <if test="name != null  and name != ''" >
+	            and name =#{name}
+	        </if>
+	        <if test="phone != null  and phone != ''" >
+	            and phone =#{phone}
+	        </if>
+	        <if test="sex != null " >
+	            and sex =#{sex}
+	        </if>
+	        <if test="networkId != null " >
+	            and networkId =#{networkId}
+	        </if>
+	        <if test="companyId != null " >
+	            and companyId =#{companyId}
+	        </if>
+		<if test="realName != null and realName != ''" >
+			and realName = #{realName}
+		</if>
+		<if test="pw != null and pw != ''" >
+			and pw = #{pw}
+		</if>
+	</sql>
+	
+   <!-- **************************************分割线************************************************************ -->	
+	
+	<!-- 以下是sql执行语句 
+	     注意：1)需要传参数的请注意你使用的方法是 xxByMap还是ByEntuty 存放的参数类型不一致。
+	      2)非自定义的方法已经是basedao注明的。方法名一定要和id相同
+	      3)自定义类的方法注意是否和共有方法重名id
+	      4)执行sql出现顺序和baseDao方法一致，便于查询请勿随意添加，自定义的sql一律放在自定义sql区域
+	 -->
+	
+	
+   <!-- ========================================新增==================================================================== -->
+	<!-- 
+	 【注意添加序列】
+	 1.方法描述：新增数据
+	 2.参数：实体类
+	 3.返回：主键
+	-->
+	<insert id="insert" parameterType="cn.kw.express.pojo.Expressperson" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO expressperson (
+        <include refid="Expressperson_inserts" />
+        ) VALUES (
+        <include refid="Expressperson_insert" />       
+        )
+	</insert>
+	
+	
+	 <!-- ========================================删除==================================================================== -->
+	<!-- 
+	 1.方法描述：根据主键id删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteById" parameterType="java.lang.Integer">
+	 delete from expressperson where id=#{id}
+	</delete>
+	
+	
+	<!-- 
+	 1.方法描述：根据实体类删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteByEntity" parameterType="cn.kw.express.pojo.Expressperson">
+	 delete from expressperson
+	  WHERE 1=1
+      <include refid="Expressperson_where" />   
+	</delete>
+	
+	
+	<!-- 
+	 1.方法描述：根据map删除
+	 2.参数：主键id
+	-->
+	<delete id="deleteByMap" parameterType="java.util.HashMap">
+	 delete from expressperson
+	  WHERE 1=1
+      <include refid="Expressperson_where" />   
+	</delete>
+	
+	
+	 <!-- ========================================修改==================================================================== -->
+	<!-- 
+	 1.方法描述：修改数据
+	 2.参数：实体类
+	-->
+	<update id="update" parameterType="cn.kw.express.pojo.Expressperson">
+        UPDATE expressperson
+        <set>
+	        <include refid="Expressperson_update" />
+	    </set>
+        WHERE 1=1
+        	<include refid="Expressperson_where" />        
+	</update>
+	
+	<!-- 
+	 1.方法描述：修改数据通过id
+	 2.参数：实体类
+	 -->
+	<update id="updateById" parameterType="cn.kw.express.pojo.Expressperson">
+        UPDATE expressperson
+        <set>
+	        <include refid="Expressperson_update" />
+	    </set>
+        WHERE 1=1
+        	and id=#{id}      
+	</update>
+	
+	
+	
+	 <!-- ========================================查询列表【不分页】==================================================================== -->
+	
+	<!-- 
+	 1.方法描述：用于listByMap根据map查询
+	 2.参数：map
+	-->
+	<select id="listByMap" resultMap="ResultMapExpressperson" parameterType="map">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于select查询所有
+	 2.参数：无参数
+	-->
+	<select id="listAll" resultMap="ResultMapExpressperson">
+		select <include refid="Expressperson_field" />
+ 		from expressperson 
+	</select>
+	
+	
+	<!-- 
+	 1.方法描述：查询所有实体,根据实体属性值为判断条件查询所有实体，
+	 2.参数：Entity
+	-->
+	<select id="listAllByEntity" resultMap="ResultMapExpressperson" parameterType="cn.kw.express.pojo.Expressperson">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+	
+	
+	 <!-- ========================================查询单个对象==================================================================== -->
+	<!-- 
+	 1.方法描述：select查询单个
+	 2.参数：id
+	-->
+	<select id="load" resultMap="ResultMapExpressperson" parameterType="java.lang.Integer">
+		select 	<include refid="Expressperson_field" />
+ 		from expressperson 
+ 		where id=#{id}
+	</select>
+	
+	
+	
+	<!-- 
+	 1.方法描述：select查询单个
+	 2.参数：id
+	-->
+	<select id="getById" resultMap="ResultMapExpressperson" parameterType="java.lang.Integer">
+		select 	<include refid="Expressperson_field" />
+ 		from expressperson 
+ 		where id=#{id}
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于getByMap根据map查询
+	 2.参数：map
+	-->
+	<select id="getByMap" resultMap="ResultMapExpressperson" parameterType="map">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+	<!-- 
+	 1.方法描述：用于Entity根据Entity查询
+	 2.参数：Entity
+	 -->
+	<select id="getByEntity" resultMap="ResultMapExpressperson" parameterType="cn.kw.express.pojo.Expressperson">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+	
+	 <!-- ========================================查询列表【分页】==================================================================== -->
+     <!-- 
+	 1.方法描述：分页
+	 2.参数：map
+	 -->
+	<select id="findByMap" resultMap="ResultMapExpressperson" parameterType="map">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+     <!-- 
+	 1.方法描述：分页
+	 2.参数：Entity
+	 -->
+	<select id="findByEntity" resultMap="ResultMapExpressperson" parameterType="cn.kw.express.pojo.Expressperson">
+		select <include refid="Expressperson_field" />
+ 		from expressperson where 1=1
+ 		<include refid="Expressperson_where" /> 
+	</select>
+	
+	
+	 <!-- ========================================批量新增修改==================================================================== -->
+	<!-- 
+	 1.方法描述：批量插入
+	 2.参数：集合/数组
+	-->
+	<insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO expressperson (
+        <include refid="Expressperson_field" />
+        ) VALUES 
+        <foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			
+	            #{item.name} ,
+	            #{item.phone} ,
+	            #{item.sex} ,
+	            #{item.networkId} ,
+	            #{item.companyId} 
+			
+			)
+		</foreach>       
+        
+	</insert>
+    
+    <!-- 
+	 1.方法描述：批量修改
+	 2.参数：集合/数组
+	-->
+	<update id="updateBatch" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"
+			separator=";">
+        UPDATE 
+        expressperson 
+        <set>
+		    <if test="item.name != null" >
+	        name = #{item.name},
+	        </if>
+		    <if test="item.phone != null" >
+	        phone = #{item.phone},
+	        </if>
+		    <if test="item.sex != null" >
+	        sex = #{item.sex},
+	        </if>
+		    <if test="item.networkId != null" >
+	        networkId = #{item.networkId},
+	        </if>
+		    <if test="item.companyId != null" >
+	        companyId = #{item.companyId}
+	        </if>
+	    </set>
+        WHERE 
+        	1=1 
+        </foreach>    
+	</update>
+
+   <!-- ******************************自定义 sql************************************************************** -->
+   
+   <!-- 
+           通过sql查询单个对象 返回对象
+    -->
+   <select id="getBySqlReturnEntity" resultMap="ResultMapExpressperson">
+		${sql}
+   </select>
+   
+    <!-- 
+           通过sql查询单个对象 返回map
+    -->
+   <select id="getBySqlReturnMap" resultType="map">
+		${sql}
+   </select>
+   
+   <!-- 
+           通过sql查询集合 返回对象
+    -->
+   <select id="listBySqReturnEntity" resultMap="ResultMapExpressperson">
+		${sql}
+   </select>
+   
+    <!-- 
+           通过sql查询查询集合 返回map
+    -->
+   <select id="listBySqReturnMap" resultType="map">
+		${sql}
+   </select>
+   
+   <!-- 
+           通过sql查询分页集合 返回对象
+    -->
+   <select id="findBySqlRerturnEntity" resultMap="ResultMapExpressperson">
+		${sql}
+   </select>
+   
+   <!-- 通过sql修改 -->
+   <update id="updateBysql">
+       ${sql}  
+   </update>
+   
+   <delete id="deleteBySql">
+	${sql}  
+	</delete>
+	
+</mapper>
+

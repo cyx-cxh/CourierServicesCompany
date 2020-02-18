@@ -1,0 +1,31 @@
+.bk{
+    text-decoration: none;
+    border: solid 1px #cdcdcd;/*边框颜色*/
+    color: #333333!important;
+    background-color:transparent!important;
+    margin-top: 5px;
+}
+
+.page{
+    display: block;
+    float: left;
+    padding: 0.18em 0.5em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    text-decoration:none;
+}
+.curr{
+    background: #0081dd;/*当前页码背景颜色*/
+    color: #fff;
+    border: solid 1px #619cc5;/*当前页码边框颜色*/
+    margin-top: 5px;
+}
+.next{
+    color:#999;
+    border-color:#999;
+    background:#fff;
+}
+a:hover{
+    text-decoration:none;
+}
